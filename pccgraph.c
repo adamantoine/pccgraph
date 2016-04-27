@@ -281,9 +281,10 @@ double graphe_lit_poids_arc(graphe g, unsigned int u, unsigned int v)
 
 graphe lit_graphe(char * fichier);
 {
+    if ((fp=fopen(fichier,"rt"))==NULL) return NULL;
     int i=0;
     unsigned int nX,nA;
-    fscanf(fichier,"%d %d",&nX,&nA);
+    fscanf(fp,"%d %d",&nX,&nA);
     graphe g;
     g=nouveau_graphe(nX, nA);
     
