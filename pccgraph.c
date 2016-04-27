@@ -323,5 +323,15 @@ graphe lit_graphe(char * fichier);
     	graphe_ajoute_arc(g,prec,dest,pds);
     }
 }
-void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val);
+void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val){
+	Liste l;
+	Arc a;
+	a.poids=val;
+	a.pred=u;
+	a.dest=v;
+		
+	l->arc=a;
+	
+	ajout_queue(a,g->(sommets+u)->arc);	
+}
 double graphe_pcc(graphe g, unsigned int u, unsigned int v);
