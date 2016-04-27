@@ -320,9 +320,6 @@ graphe lit_graphe(char * fichier);
     fgets(fp);
     while(fscanf(fp,"%u %u %lf",&prec,&dest,&pds)!=0)
     {
-    	a.prec=prec;
-        a.dest=dest;
-    	a.poids=pds;
     	graphe_ajoute_arc(g,prec,dest,pds);
     }
 }
