@@ -173,7 +173,26 @@ graphe nouveau_graphe(unsigned int nX,unsigned int nA)
     return g;
 }
 
-//void affiche_graphe(graphe g)
+void visualiser_sommets(Sommets* s)
+{
+    Sommets* p;
+    p=s;
+    printf(" %lf %s %d   ",p->poids,p->station,p->No);
+  
+	}
+
+
+
+void affiche_graphe(graphe g){
+	int i;
+	for(i=0;i<(g->nX);i++){
+		visualiser_sommets(g->sommets+i);
+		}
+	for(i=0;i<(g->nX);i++){
+		visualiser_liste(g->(sommets+i)->arc);
+		}
+	}
+
 
 
 void detruit_graphe(graphe g)
@@ -281,18 +300,13 @@ double graphe_lit_poids_arc(graphe g, unsigned int u, unsigned int v)
 
 graphe lit_graphe(char * fichier);
 {
-    if ((fp=fopen(fichier,"rt"))==NULL) return NULL;
     int i=0;
     unsigned int nX,nA;
-    fscanf(fp,"%d %d",&nX,&nA);
+    fscanf(fichier,"%d %d",&nX,&nA);
     graphe g;
     g=nouveau_graphe(nX, nA);
-    fgets(fp);
-    for(i=0;i<nX;i++)
-    {
-    	 
-    }
-    fclose(fp);
+    
+    
 }
 void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val);
 double graphe_pcc(graphe g, unsigned int u, unsigned int v);
