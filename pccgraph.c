@@ -301,12 +301,30 @@ double graphe_lit_poids_arc(graphe g, unsigned int u, unsigned int v)
 graphe lit_graphe(char * fichier);
 {
     int i=0;
-    unsigned int nX,nA;
-    fscanf(fichier,"%d %d",&nX,&nA);
+    Sommets som;
+    Liste l;
+    unsigned int nX,nA,No,prec,dest;
+    double coa,cob,pds;
+    char* line,name;
+    fscanf(fp,"%u %u",&nX,&nA);
     graphe g;
     g=nouveau_graphe(nX, nA);
-    
-    
+    fgets(fp);
+    for(i=0;i<nX;i++)
+    {
+    	som=(g->(sommets+i));
+    	fscanf(fp,"%u %lf %lf %s %s",&No,&coa,&cob,line,name);
+    	som.No=No;
+    	strcpy(som.line,line);
+    	strcpy(som.name,name);
+    }
+    fgets(fp);
+    som=*(g->(sommets));
+    	while(fscanf(fp,"%u %u %lf",&prec,&dest,&pds)!=0)
+    	{
+    	     
+    	}
+    }
 }
 void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val);
 double graphe_pcc(graphe g, unsigned int u, unsigned int v);
