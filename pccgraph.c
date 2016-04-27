@@ -173,7 +173,25 @@ graphe nouveau_graphe(unsigned int nX,unsigned int nA)
     return g;
 }
 
-//void affiche_graphe(graphe g)
+void visualiser_sommets(Sommets* s)
+{
+    Sommets* p;
+    p=s;
+    printf(" %lf %s %d   ",p->poids,p->station,p->No);
+  
+	}
+
+
+
+void affiche_graphe(graphe g){
+	int i;
+	for(i=0;i<(g->nX);i++){
+		visualiser_sommets(g->sommets+i);
+		}
+	for(i=0;i<(g->nX);i++){
+		visualiser_liste(g->(sommets+i)->arc);
+		}
+	}
 
 
 void detruit_graphe(graphe g)
