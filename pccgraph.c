@@ -302,6 +302,7 @@ graphe lit_graphe(char * fichier);
 {
     int i=0;
     Sommets som;
+    Arc a;
     Liste l;
     unsigned int nX,nA,No,prec,dest;
     double coa,cob,pds;
@@ -313,17 +314,16 @@ graphe lit_graphe(char * fichier);
     for(i=0;i<nX;i++)
     {
     	som=(g->(sommets+i));
-    	fscanf(fp,"%u %lf %lf %s %s",&No,&coa,&cob,line,name);
+    	fscanf(fp,"%u %lf %lf %s %s",&No,&coa,&cob,som.line,som.name);
     	som.No=No;
-    	strcpy(som.line,line);
-    	strcpy(som.name,name);
     }
     fgets(fp);
-    som=*(g->(sommets));
-    	while(fscanf(fp,"%u %u %lf",&prec,&dest,&pds)!=0)
-    	{
-    	     
-    	}
+    while(fscanf(fp,"%u %u %lf",&prec,&dest,&pds)!=0)
+    {
+    	a.prec=prec;
+        a.dest=dest;
+    	a.poids=pds;
+    	graphe_ajoute_arc(g,prec,dest,pds);
     }
 }
 void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val);
