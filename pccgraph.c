@@ -287,8 +287,12 @@ graphe lit_graphe(char * fichier);
     fscanf(fp,"%d %d",&nX,&nA);
     graphe g;
     g=nouveau_graphe(nX, nA);
-    
-    
+    fgets(fp);
+    for(i=0;i<nX;i++)
+    {
+    	 
+    }
+    fclose(fp);
 }
 void graphe_ajoute_arc(graphe g, unsigned int u, unsigned int v, double val);
 double graphe_pcc(graphe g, unsigned int u, unsigned int v);
